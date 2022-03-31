@@ -1,0 +1,36 @@
+package com.revature;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class OnboardingCodingChallenge {
+
+    public static void howManyOpenLockers() {
+
+        List<Boolean> lockers = new ArrayList();
+        int total = 0;
+
+        for(int i = 0; i < 100; i++) {
+            lockers.add(true);
+        }
+
+        for(int pass = 2; pass <= 100; pass++) {
+            for (int index = 0; index < 100; index++) {
+                if((index + 1) % pass == 0) {
+                    lockers.set(index, !lockers.get(index));
+                }
+            }
+
+        }
+        for(int index = 0; index < lockers.size(); index++) {
+
+            if(lockers.get(index) == true) {
+                System.out.println(index+1);
+                total++;
+            }
+        }
+        System.out.println(lockers);
+        System.out.println(total);
+    }
+
+}
